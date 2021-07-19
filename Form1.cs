@@ -32,8 +32,8 @@ namespace MileageCalculator
 
             if (startingMileage <= endingMileage)
             {
-                milesTraveled = endingMileage -= startingMileage;
-                amountOwed = milesTraveled *= reimburseRate;
+                milesTraveled = endingMileage - startingMileage;
+                amountOwed = milesTraveled * reimburseRate;
                 label4.Text = amountOwed.ToString() + " $";
             }
             else
@@ -41,6 +41,11 @@ namespace MileageCalculator
                 MessageBox.Show("Starting milege has to be lower than ending mileage", "I cannot calculate the mileage");
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(milesTraveled + " miles", "Miles Traveled");
         }
     }
 }
